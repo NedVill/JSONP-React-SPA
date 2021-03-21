@@ -1,0 +1,14 @@
+$body-color: white;
+
+body {
+  background-color: $body-color;
+}
+
+.content_page {
+  padding: 50px;
+  min-height: 100vh !important;
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,22 @@
+.post {
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &-column {
+    margin-bottom: 20px;
+  }
+}
+
+.ant {
+
+  &-card {
+
+    &-actions {
+      margin-top: auto !important;
+    }
+  }
+}
