@@ -9,7 +9,7 @@ export default class ApiService {
 
   private returnResponse = (response: IFetch, type: string, doneText?: string): [] => {
     if (!response.ok) {
-      this.message.error(`Error ${type}! Code: ${response.status} ${response.text}`);
+      this.message.error(`Error ${type}! Code: ${response.status}`);
 
       return [];
     }
