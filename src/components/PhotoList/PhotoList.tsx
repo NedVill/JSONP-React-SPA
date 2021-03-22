@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { observer } from 'mobx-react';
 import { RouteComponentProps } from 'react-router';
 import {
@@ -25,14 +25,11 @@ interface MatchParams {
     this.store.fetchPhotos(match.params.id);
   }
 
-  private renderPhotos = (): JSX.Element[] => {
+  private renderPhotos = (): ReactNode => {
     const { photos } = this.store;
-    let elemArr: JSX.Element[];
 
-    if (Object.values(photos).length === 0) {
-      elemArr = [<p>No results</p>];
-    } else {
-      elemArr = photos.map((item: IPhoto) => {
+    if (Object.values(photos).length > 0) {
+      return photos.map((item: IPhoto) => {
         const elem = (
           <Col
             key={item.id}
@@ -53,7 +50,7 @@ interface MatchParams {
       });
     }
 
-    return elemArr;
+    return <p>No results</p>;
   };
 
   render(): JSX.Element {

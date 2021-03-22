@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { observer } from 'mobx-react';
 import { Row, Divider, Button } from 'antd';
 import { IPost, ISetPost } from '../../Interfaces/Interfaces';
@@ -21,14 +21,11 @@ import './posts.scss';
     this.store.deletePost(id);
   };
 
-  private renderPosts = (): JSX.Element[] => {
+  private renderPosts = (): ReactNode => {
     const { posts } = this.store;
-    let elems: JSX.Element[];
 
-    if (Object.values(posts).length === 0) {
-      elems = [<p>No results</p>];
-    } else {
-      elems = posts.map((item: IPost) => {
+    if (Object.values(posts).length > 0) {
+      return posts.map((item: IPost) => {
         const elem: JSX.Element = (
           <Post
             key={item.id}
@@ -43,7 +40,7 @@ import './posts.scss';
       });
     }
 
-    return elems;
+    return <p>No results</p>;
   };
 
   private callModal = (): void => {
